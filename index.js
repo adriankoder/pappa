@@ -1,14 +1,29 @@
+
+//endrer forkortelse til ord
 function erstattTekst(event) {
-    let tekstfelt = document.getElementById("tekstfelt");
-    tekst = tekstfelt.value;
-
-    // Endrer forkortelser til ord når mellomromstasten trykkes
-    if (event.key === " ") { 
+    if (event.keyCode === 32) {
+        let tekstfelt = document.getElementById("tekstfelt");
+        tekst = tekstfelt.value;
         nyTekst = tekst.replace(/pe/gi, "pris");
-        nyTekst = nyTekst.replace(/tv/gi, "tyvek");
-        nyTekst = nyTekst.replace(/ep/gi, "hvist jeg ikke svarer på telefon gjerne send meg epost");
-        nyTekst = nyTekst.replace(/tyvekb/gi, "tyvek bånd 0,9 kr pr. stk");
-
+        tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
+    }
+    if (event.keyCode === 32) {
+        let tekstfelt = document.getElementById("tekstfelt");
+        tekst = tekstfelt.value;
+        nyTekst = tekst.replace(/tv/gi, "tyvek");
+        tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
+}
+    if (event.keyCode === 32) {
+        let tekstfelt = document.getElementById("tekstfelt");
+        tekst = tekstfelt.value;
+        nyTekst = tekst.replace(/ep/gi, "hvist jeg ikke svarer på telenon gjerne send meg epost");
+        tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
+    }
+    
+    if (event.keyCode === 32) {
+        let tekstfelt = document.getElementById("tekstfelt");
+        tekst = tekstfelt.value;
+        nyTekst = tekst.replace(/tyvek/gi, "tyvek bånd 0,9 kr pr. stk");
         tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
     }
 }
