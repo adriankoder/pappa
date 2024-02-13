@@ -23,7 +23,7 @@ function erstattTekst(event) {
     if (event.keyCode === 32) {
         let tekstfelt = document.getElementById("tekstfelt");
         tekst = tekstfelt.value;
-        nyTekst = tekst.replace(/tyvekp/gi, "tyvek bånd 0,9 kr pr. stk");
+        nyTekst = tekst.replace(/tyvekb/gi, "tyvek bånd 0,9 kr pr. stk");
         tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
     }
 }
