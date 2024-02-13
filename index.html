@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="nb">
 <head>
@@ -11,6 +9,12 @@
 </head>
 <body>
 <input type="text" id="tekstfelt" onkeypress="erstattTekst(event)">
+<textarea id="tekstområde" cols="30" rows="10"></textarea>
+<form id="emailForm">
+    <input type="email" id="email" placeholder="Skriv inn din e-postadresse" required>
+    <textarea id="message" placeholder="Skriv meldingen her" required></textarea>
+    <button type="submit">Send E-post</button>
+</form>
 
 <script>
 
@@ -18,4 +22,5 @@
 
 </body>
 </html>
+
 
