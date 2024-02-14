@@ -4,23 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manipulere tekstfelt</title>
-<script src="index.js" default> </script>
+<script src="index.js" default></script>
 
 </head>
 <body>
 <input type="text" id="tekstfelt" onkeypress="erstattTekst(event)">
 <textarea id="tekstområde" cols="30" rows="10"></textarea>
-<form id="emailForm">
-    <input type="email" id="email" placeholder="Skriv inn din e-postadresse" required>
-    <textarea id="message" placeholder="Skriv meldingen her" required></textarea>
+<form id="emailForm" action="send_email.php" method="post">
+    <input type="email" id="email" name="email" placeholder="Skriv inn din e-postadresse" required>
+    <textarea id="message" name="message" placeholder="Skriv meldingen her" required></textarea>
     <button type="submit">Send E-post</button>
 </form>
 
-<script>
-
-</script>
-
 </body>
 </html>
-
-

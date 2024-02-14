@@ -25,7 +25,7 @@ function visPrisMelding() {
     prisElement.innerText = "Tyvek armbåndene koster 0,9 kr pr. stk"; // Viser prisen for tyvek armbånd
 }
 function sendEmail() {
-    var email = "example@example.com"; // E-postadressen du vil sende til
+    var email = "adrian.koder@gmail.com"; // E-postadressen du vil sende til
     var message = "Din melding her"; // Meldingen du vil sende
 
     var xhr = new XMLHttpRequest();
