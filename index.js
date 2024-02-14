@@ -39,7 +39,7 @@ function sendEmail() {
     };
     xhr.send("email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message));
 }
-document.getElementById("emailForm").addEventListener("submit", function(event) {
+document.getElementById("emailForm").addEventListener("click", function(event) {
     event.preventDefault(); // Forhindrer standard form handling
 
     var email = document.getElementById("email").value;
