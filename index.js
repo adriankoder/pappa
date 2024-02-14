@@ -10,20 +10,29 @@ function erstattTekst(event) {
         nyTekst = nyTekst.replace(/tyvekb/gi, "tyvek bånd 0,9 kr pr. stk");
 
         tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
-    }
 
-    // Sjekker om teksten inneholder ordene "tyvek" eller "pris"
-    if (tekst.toLowerCase().includes("tyvek") || tekst.toLowerCase().includes("pris")) {
-        // Vis melding om prisen for tyvek armbånd
-        visPrisMelding();
+        // Sjekker om teksten inneholder ordene "tyvek" eller "pris" etter erstatning
+        if (nyTekst.toLowerCase().includes("tyvek") || nyTekst.toLowerCase().includes("pris")) {
+            // Vis melding om prisen for tyvek armbånd
+            visPrisMelding();
+        }
     }
 }
+
+// Legg til event-lytter for mellomromstasten
+document.addEventListener("keypress", function(event) {
+    if (event.key === " ") {
+        erstattTekst(event); // Kall erstattTekst-funksjonen når mellomromstasten trykkes
+        sendEmail(); // Send e-post når mellomromstasten trykkes
+    }
+});
 
 function visPrisMelding() {
     // Viser melding om prisen for tyvek armbånd
     let prisElement = document.getElementById("prisElement");
     prisElement.innerText = "Tyvek armbåndene koster 0,9 kr pr. stk"; // Viser prisen for tyvek armbånd
 }
+
 function sendEmail() {
     var email = "adrian.koder@gmail.com"; // E-postadressen du vil sende til
     var message = "Din melding her"; // Meldingen du vil sende
@@ -39,20 +48,3 @@ function sendEmail() {
     };
     xhr.send("email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message));
 }
-document.getElementById("emailForm").addEventListener("click", function(event) {
-    event.preventDefault(); // Forhindrer standard form handling
-
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-
-    // Send dataene til serveren
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "send_email.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText); // Viser svaret fra serveren
-        }
-    };
-    xhr.send("email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message));
-});
