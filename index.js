@@ -27,10 +27,21 @@ document.addEventListener("keypress", function(event) {
     }
 });
 
-function visPrisMelding() {
-    // Viser melding om prisen for tyvek armbånd
-    let prisElement = document.getElementById("prisElement");
-    prisElement.innerText = "Tyvek armbåndene koster 0,9 kr pr. stk"; // Viser prisen for tyvek armbånd
+// Teksten som inneholder beskrivelsen og tallet
+{var tekst = "Armbåndene koster 0,9 kr per stykk og han skal ha 10.";
+// Finn indeksen til teksten som inneholder "tyvekb"
+var tyvekbIndex = tekst.indexOf("tyvekb");
+// Finn indeksen til det første mellomrommet før "tyvekb", dette antas å være starten på tallet
+var talletIndex = tekst.lastIndexOf(" ", tyvekbIndex) + 1;
+// Hent ut tallet som en streng
+var talletStr = tekst.substring(talletIndex, tekst.indexOf(" ", tyvekbIndex));
+// Konverter tallet til et flyttall, og erstatt komma med punktum for desimalskilletegn (for å sikre riktig format i JavaScript)
+var tallet = parseFloat(talletStr.replace(",", "."));
+// Utfør beregningen
+var pris = tallet * 10;
+// Oppdater innholdet i <div> med det beregnede resultatet
+document.getElementById("demo").innerHTML = pris.toFixed(2) + " kr"; // Vis pris med to desimaler
+
 }
 
 function sendEmail() {
