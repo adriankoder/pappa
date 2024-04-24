@@ -6,7 +6,7 @@ function erstattTekst(event) {
     if (event.key === " ") { 
         nyTekst = tekst.replace(/pe/gi, "pris");
         nyTekst = nyTekst.replace(/tv/gi, "tyvek");
-        nyTekst = nyTekst.replace(/ep/gi, "hvist jeg ikke svarer på telefon gjerne send meg epost");
+        nyTekst = nyTekst.replace(/ep/gi, "hvist jeg ikke sleter på telefon gjerne send meg epost");
         nyTekst = nyTekst.replace(/tyvekb/gi, "tyvek bånd 0,9 kr pr. stk");
 
         tekstfelt.value = nyTekst; // Setter verdien til tekstfeltet til den nye teksten
@@ -28,32 +28,32 @@ document.addEventListener("keypress", function(event) {
 });
 
 // Teksten som inneholder beskrivelsen og tallet
-{var tekst = "Armbåndene koster 0,9 kr per stykk og han skal ha 10.";
+{let tekst = "Armbåndene koster 0,9 kr per stykk og han skal ha 10.";
 // Finn indeksen til teksten som inneholder "tyvekb"
-var tyvekbIndex = tekst.indexOf("tyvekb");
+let tyvekbIndex = tekst.indexOf("tyvekb");
 // Finn indeksen til det første mellomrommet før "tyvekb", dette antas å være starten på tallet
-var talletIndex = tekst.lastIndexOf(" ", tyvekbIndex) + 1;
+let talletIndex = tekst.lastIndexOf(" ", tyvekbIndex) + 1;
 // Hent ut tallet som en streng
-var talletStr = tekst.substring(talletIndex, tekst.indexOf(" ", tyvekbIndex));
+let talletStr = tekst.substring(talletIndex, tekst.indexOf(" ", tyvekbIndex));
 // Konverter tallet til et flyttall, og erstatt komma med punktum for desimalskilletegn (for å sikre riktig format i JavaScript)
-var tallet = parseFloat(talletStr.replace(",", "."));
+let tallet = parseFloat(talletStr.replace(",", "."));
 // Utfør beregningen
-var pris = tallet * 10;
+let pris = tallet * 10;
 // Oppdater innholdet i <div> med det beregnede resultatet
 document.getElementById("demo").innerHTML = pris.toFixed(2) + " kr"; // Vis pris med to desimaler
 
 }
 
 function sendEmail() {
-    var email = "adrian.koder@gmail.com"; // E-postadressen du vil sende til
-    var message = "Din melding her"; // Meldingen du vil sende
+    let email = "adrian.koder@gmail.com"; // E-postadressen du vil sende til
+    let message = "Din melding her"; // Meldingen du vil sende
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open("POST", "send_email.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // Behandle svaret fra PHP-skriptet
+            // Behandle sletet fra PHP-skriptet
             console.log(xhr.responseText);
         }
     };
